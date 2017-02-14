@@ -15,12 +15,13 @@ export class AboutComponent implements OnInit {
   }
 
   public users;
+  public results;
   // username = {};
 
 
   loadUser() {
     this.apiService.getUser().subscribe(
-      data => this.users = data
+      data => this.results = data.results
     );
   }
 

@@ -10,7 +10,7 @@ export class ApiService {
   ) {}
 
   getUser() {
-    return this.http.get('https://jsonplaceholder.typicode.com/users')
+    return this.http.get('https://y9hvb1ii28.execute-api.us-east-1.amazonaws.com/dev/search/tracks?token=ihateyousomuchrightnow&q=2pac')
       .map( (res:Response) => res.json());
        // .map(response => response.json().data);
 

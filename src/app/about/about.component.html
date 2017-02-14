@@ -2,13 +2,14 @@
   Http request
 </p>
 
-<button (click)="loadUser()" class="btn btn-primary">Load users</button>
+<button (click)="loadUser()" class="btn btn-primary">Load titles</button>
 <br>
 <br>
 
+
 <ul class="list-group">
-  <li *ngFor="let user of users" class="list-group-item">
-    {{user.username}}
+  <li *ngFor="let result of results" class="list-group-item">
+    {{result.title}}
   </li>
 </ul>
 
