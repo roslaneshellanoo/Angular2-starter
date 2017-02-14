@@ -1,12 +1,14 @@
 <p>
-  About Works!
-  444
+  Http request
 </p>
 
-<button (click)="loadUser()">Load users</button>
+<button (click)="loadUser()" class="btn btn-primary">Load users</button>
+<br>
+<br>
 
+<ul class="list-group">
+  <li *ngFor="let user of users" class="list-group-item">
+    {{user.username}}
+  </li>
+</ul>
 
-
-<li *ngFor="let user of users">
-{{user.username}}
-</li>
