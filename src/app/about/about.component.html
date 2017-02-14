@@ -1,3 +1,12 @@
 <p>
   About Works!
+  444
 </p>
+
+<button (click)="loadUser()">Load users</button>
+
+
+
+<li *ngFor="let user of users">
+{{user.username}}
+</li>
