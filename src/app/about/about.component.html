@@ -2,10 +2,33 @@
   Http request
 </p>
 
+
+
+<div>
+  <h2>Wikipedia Search</h2>
+  <input #term type="text" (keyup)="search(term.value)">
+  <ul>
+    <div class="loader" *ngIf="isLoading">
+      <h3>
+        Loading...
+      </h3>
+    </div>
+    <li *ngFor="let item of items">{{item.title}}</li>
+
+  </ul>
+</div>
+
+<hr>
+<!-------- end Wiki -------->
+
 <button (click)="loadUser()" class="btn btn-primary">Load titles</button>
+<button  class="btn btn-primary" (click)="isClassVisible = !isClassVisible;">Add Class...</button>
 <br>
 <br>
 
+<div id="my_id" [ngClass]="{'active': isClassVisible}" class="somediv">
+  This is a div written in black.
+</div>
 
 <ul class="list-group">
   <li *ngFor="let result of results" class="list-group-item">

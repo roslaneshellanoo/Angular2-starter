@@ -3,6 +3,11 @@ body {
 
 
 }
-a {
 
+header {
+  z-index: 11;
+}
+
+button, .btn {
+  cursor: pointer;
 }
