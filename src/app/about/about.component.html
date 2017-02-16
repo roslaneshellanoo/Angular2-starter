@@ -3,17 +3,22 @@
 </p>
 
 
-
 <div>
   <h2>Wikipedia Search</h2>
-  <input #term type="text" (keyup)="search(term.value)">
-  <ul>
+  <div class="wrap-input relative mb-4 mt-4">
+    <input #term type="text" (keyup)="search(term.value)">
     <div class="loader" *ngIf="isLoading">
-      <h3>
-        Loading...
-      </h3>
+      <img src="/img/ring.svg" class="d-inline-block align-top" alt="">
     </div>
-    <li *ngFor="let item of items">{{item.title}}</li>
+  </div>
+
+
+
+  <ul class="list-group relative">
+
+    <li *ngFor="let item of items" class="list-group-item">
+      {{item.title}}
+    </li>
 
   </ul>
 </div>
@@ -22,7 +27,7 @@
 <!-------- end Wiki -------->
 
 <button (click)="loadUser()" class="btn btn-primary">Load titles</button>
-<button  class="btn btn-primary" (click)="isClassVisible = !isClassVisible;">Add Class...</button>
+<button class="btn btn-primary" (click)="isClassVisible = !isClassVisible;">Add Class...</button>
 <br>
 <br>
 
