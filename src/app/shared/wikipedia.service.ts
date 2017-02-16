@@ -5,6 +5,9 @@ import {Http,Response, URLSearchParams} from '@angular/http';
 
 
 export class WikipediaService {
+
+  title = 'Music Messenger Search';
+
   constructor(
     //private jsonp: Jsonp,
     public http: Http

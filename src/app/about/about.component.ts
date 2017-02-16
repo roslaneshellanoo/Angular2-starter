@@ -22,7 +22,7 @@ export class AboutComponent implements OnInit {
   //variable to hold boolean value to style1
   isClassVisible: false;
   isLoading = false;
-
+  title =  "fdsafsad";
 
   public users;
 
@@ -45,7 +45,11 @@ export class AboutComponent implements OnInit {
         console.log(error)
       },
       () => {
-        this.isLoading = false;
+
+        setTimeout(()=> {
+          this.isLoading = false;
+        }, 500)
+
       }
     );
   }
