@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-
+import {Http} from '@angular/http';
+import {contentHeaders} from '../shared/headers';
 
 import {ApiService} from '../shared/api.service'
 import {WikipediaService} from '../shared/wikipedia.service'
@@ -13,8 +14,12 @@ import {WikipediaService} from '../shared/wikipedia.service'
 })
 export class AboutComponent implements OnInit {
 
-  constructor(public apiService: ApiService,
-              public wikipediaService: WikipediaService) {
+  constructor(
+
+    public apiService: ApiService,
+    public wikipediaService: WikipediaService,
+    public http: Http
+  ) {
     // Do stuff
   }
 
@@ -22,7 +27,7 @@ export class AboutComponent implements OnInit {
   //variable to hold boolean value to style1
   isClassVisible: false;
   isLoading = false;
-  title =  "fdsafsad";
+  title = "fdsafsad";
 
   public users;
 
@@ -46,12 +51,32 @@ export class AboutComponent implements OnInit {
       },
       () => {
 
-        setTimeout(()=> {
+        setTimeout(() => {
           this.isLoading = false;
         }, 500)
 
       }
     );
+  }
+
+  // .get('https://y9hvb1ii28.execute-api.us-east-1.amazonaws.com/dev/' + path +'/?'+ params, {search:params})
+
+
+  login(event, username, password) {
+    event.preventDefault();
+    let body = JSON.stringify({username, password});
+    this.http.post('https://y9hvb1ii28.execute-api.us-east-1.amazonaws.com/dev/', body, {headers: contentHeaders})
+      .subscribe(
+        response => {
+          localStorage.setItem('id_token', response.json().id_token);
+          //this.router.navigate(['home']);
+          console.log(response)
+        },
+        error => {
+          alert(error.text());
+          console.log(error.text());
+        }
+      );
   }
 
 

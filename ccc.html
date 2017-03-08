@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+</head>
+
+
+
+
+<body>
+<h1>
+  Something...
+</h1>
+
+<script>
+
+  $.ajax({
+    url: "https://nmm.mmtst.com/web/login",
+    type: "post",
+    dataType: 'json',
+    data: {'email':'chen77@gmail.com', 'password':'123456'},
+    async: true,
+    cache: true,
+    crossDomain: true,
+    withCredentials: true,
+    //xhrFields: { withCredentials: true },
+    // withCredentials: true,
+
+
+    success: function (data, textStatus, jqXHR) {
+
+
+
+      console.log("success!!!!!!");
+      console.log(jqXHR.getResponseHeader('x-nmm'));
+      debugger;
+      document.cookie = jqXHR.getResponseHeader('x-nmm').split(';')[0];
+
+//      let mycookie  = jqXHR.getResponseHeader('x-nmm');
+//      document.cookie = mycookie;
+//      console.log(mycookie);
+
+
+    },
+    error: function (error) {
+      console.log(error);
+      alert('error');
+    }
+  });
+
+</script>
+</body>
+
+
+</html>
+
+
